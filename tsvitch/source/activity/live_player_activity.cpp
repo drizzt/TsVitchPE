@@ -208,6 +208,7 @@ void LiveActivity::retryRequestData() {
 }
 
 void LiveActivity::getAdUrlFromServer(std::function<void(const std::string&)> callback) {
+#ifdef SERVER_URL
     CLIENT::get_ad(
         [callback](const std::string& adUrl, int statusCode) {
             if (statusCode == 200 && !adUrl.empty()) {
@@ -222,6 +223,9 @@ void LiveActivity::getAdUrlFromServer(std::function<void(const std::string&)> ca
             brls::Logger::error("LiveActivity: Error getting ad URL: {}, status code: {}", error, statusCode);
             if (callback) callback("");
         });
+#else
+    if (callback) callback("");
+#endif
 }
 
 LiveActivity::~LiveActivity() {

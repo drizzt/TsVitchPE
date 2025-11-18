@@ -30,23 +30,23 @@ option(DEBUG_SANITIZER "Turn on sanitizers (only available in debug build)" OFF)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/GoogleAnalytics.cmake)
 
 # Server URL
-option(SERVER_URL "URL del server" "")
+set(SERVER_URL "" CACHE STRING "URL del server")
 if (NOT DEFINED SERVER_URL OR "${SERVER_URL}" STREQUAL "")
-    message(FATAL_ERROR "SERVER_URL not defined")
+    message(WARNING "SERVER_URL not defined")
 else()
     list(APPEND APP_PLATFORM_OPTION -DSERVER_URL="${SERVER_URL}")
 endif()
 
 # Server Token
-option(SERVER_TOKEN "Token del server" "")
+set(SERVER_TOKEN "" CACHE STRING "Token del server")
 if (NOT DEFINED SERVER_TOKEN OR "${SERVER_TOKEN}" STREQUAL "")
-    message(FATAL_ERROR "SERVER_TOKEN not defined")
+    message(WARNING "SERVER_TOKEN not defined")
 else()
     list(APPEND APP_PLATFORM_OPTION -DSERVER_TOKEN="${SERVER_TOKEN}")
 endif()
 
 # Default M3U8 URL
-option(M3U8_URL "Default M3U8 URL" "")
+set(M3U8_URL "" CACHE STRING "Default M3U8 URL")
 if (M3U8_URL)
     list(APPEND APP_PLATFORM_OPTION -DM3U8_URL="${M3U8_URL}")
 endif ()

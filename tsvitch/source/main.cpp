@@ -71,6 +71,7 @@ int main(int argc, char* argv[]) {
     else
         Intent::openHint();
 
+#ifdef SERVER_URL
     //check if user_id is set, if not register a new user
     if (ProgramConfig::instance().getDeviceID().empty()) {
         brls::Logger::info("No user ID found, registering a new user...");
@@ -101,6 +102,7 @@ int main(int argc, char* argv[]) {
                 brls::Logger::error("Error checking user ID: {} (status: {})", error, status);
             });
     }
+#endif
 
     GA("open_app", {{"version", APPVersion::instance().getVersionStr()},
                     {"language", brls::Application::getLocale()},

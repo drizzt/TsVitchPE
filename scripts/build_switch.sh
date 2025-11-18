@@ -22,21 +22,6 @@ for PKG in "${PKGS[@]}"; do
 done
 
 
-if [ -z "${GA_ID}" ] || [ -z "${GA_KEY}" ]; then
-    echo "GA_ID or GA_KEY not found in environment"
-    exit 1
-fi
-
-if [ -z "${SERVER_URL}" ]; then
-    echo "SERVER_URL not found in environment"
-    exit 1
-fi
-
-if [ -z "${SERVER_TOKEN}" ]; then
-    echo "SERVER_TOKEN not found in environment"
-    exit 1
-fi
-
 if [ -z "${M3U8_URL}" ]; then
     echo "M3U8_URL not found in environment"
     exit 1
@@ -47,12 +32,6 @@ cmake -B ${BUILD_DIR} \
   -DBUILTIN_NSP=ON \
   -DPLATFORM_SWITCH=ON \
   -DBRLS_UNITY_BUILD=ON \
-  -DCMAKE_UNITY_BUILD_BATCH_SIZE=16 \
-  -DANALYTICS=ON \
-  -DANALYTICS_ID="${GA_ID}" \
-  -DANALYTICS_KEY="${GA_KEY}" \
-  -DSERVER_URL="${SERVER_URL}" \
-    -DSERVER_TOKEN="${SERVER_TOKEN}" \
   -DM3U8_URL="${M3U8_URL}" 
 
 make -C ${BUILD_DIR} TsVitch.nro -j$(nproc)

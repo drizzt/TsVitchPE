@@ -1,5 +1,7 @@
 #pragma once
 
+#ifdef ANALYTICS
+
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -59,3 +61,10 @@ public:
 };
 
 }  // namespace analytics
+
+#else
+
+#define GA(a, ...) void(a);
+#define GA_SEND void();
+
+#endif

@@ -1,3 +1,5 @@
+#ifdef SERVER_URL
+
 #include "tsvitch.h"
 #include "tsvitch/util/http.hpp"
 #include <borealis/core/application.hpp>
@@ -252,5 +254,7 @@ void TsVitchClient::get_ad(const std::function<void(const std::string&, int)>& c
             }
         },
         error);
-}
+    }
 }  // namespace tsvitch
+
+#endif

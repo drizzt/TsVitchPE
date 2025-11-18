@@ -1,4 +1,4 @@
-
+#ifdef ANALYTICS
 
 #include "analytics.h"
 
@@ -88,3 +88,5 @@ Analytics::Analytics() {
 Analytics::~Analytics() { reportTimer.stop(); }
 
 }  // namespace analytics
+
+#endif
