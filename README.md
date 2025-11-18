@@ -98,7 +98,7 @@ The following describes the build method under OpenGL. deko3d (better hard solve
 #### Docker
 
 ```shell
-docker run --rm -v $(pwd):/data devkitpro/devkita64:20240202 \
+docker run --rm -v $(pwd):/data devkitpro/devkita64 \
   bash -c "/data/scripts/build_switch.sh"
 ```
 
