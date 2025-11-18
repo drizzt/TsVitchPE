@@ -1,4 +1,5 @@
 #ifdef __SWITCH__
+#include <cstring>
 #include "utils/switch_helper.hpp"
 HidsysNotificationLedPattern SwitchHelper::getBreathePattern() {
     HidsysNotificationLedPattern pattern;
