@@ -24,7 +24,7 @@
                     fontSize="60"
                     marginRight="10"
                     lineHeight="1"
-                    text="TsVitch"/>
+                    text="TsVitchPE"/>
             <brls:Label
                     id="setting/about/version"
                     marginRight="20"
@@ -90,7 +90,7 @@
                 width="@style/tsvitch/about/qr"
                 height="@style/tsvitch/about/qr"
                 cornerRadius="6"
-                QRContent="https://github.com/giovannimirulla/TsVitch"/>
+                QRContent="https://github.com/drizzt/TsVitchPE"/>
         <brls:Label
                 marginTop="10"
                 textColor="@theme/font/grey"

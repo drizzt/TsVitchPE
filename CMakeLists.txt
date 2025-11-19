@@ -4,7 +4,7 @@ set(BOREALIS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/library/borealis)
 set(BOREALIS_LIBRARY ${BOREALIS_DIR}/library)
 
 # Include Platform common options
-# TsVitch only support PLATFORM_DESKTOP and PLATFORM_SWITCH
+# TsVitchPE only support PLATFORM_DESKTOP and PLATFORM_SWITCH
 # example: cmake -B build -DPLATFORM_DESKTOP=ON
 include(${BOREALIS_LIBRARY}/cmake/commonOption.cmake)
 
@@ -99,16 +99,14 @@ list(APPEND APP_PLATFORM_OPTION -DBUILD_TAG_VERSION=${GIT_TAG_VERSION} -DBUILD_T
 add_definitions(-DFONS_HASH_LUT_SIZE=4096)
 
 # Project Info
-project(TsVitch)
+project(TsVitchPE)
 set(VERSION_MAJOR "0")
 set(VERSION_MINOR "2")
 set(VERSION_REVISION "1")
-if (NOT VERSION_BUILD)
-    set(VERSION_BUILD "0")
-endif ()
-set(PROJECT_AUTHOR "giovannimirulla")
-set(PACKAGE_NAME com.giovannimirulla.tsvitch)
-set(VITA_TITLEID "TSVITCH0")
+set(VERSION_BUILD "1")
+set(PROJECT_AUTHOR "drizzt")
+set(PACKAGE_NAME it.belloworld.tsvitchpe)
+set(VITA_TITLEID "TSVITCHPE0")
 set(PSN_TITLE_ID "TVSI00000")
 set(VITA_VERSION "00.21")
 set(PROJECT_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/icon.jpg)
@@ -199,7 +197,7 @@ endif ()
 if (CUSTOM_RESOURCES_DIR)
     set(BRLS_RESOURCES_DIR ${CUSTOM_RESOURCES_DIR})
 elseif (INSTALL)
-    set(BRLS_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/share/tsvitch)
+    set(BRLS_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/share/tsvitchpe)
 else ()
     set(BRLS_RESOURCES_DIR ".")
 endif ()
@@ -272,7 +270,7 @@ elseif (PLATFORM_IOS)
             "${CMAKE_CURRENT_SOURCE_DIR}/library/borealis/demo/ios/iphoneos/Splash.storyboard"
             "${CMAKE_CURRENT_SOURCE_DIR}/library/borealis/demo/ios/Images.xcassets"
             "${CMAKE_CURRENT_SOURCE_DIR}/scripts/ios/iOSBundleInfo.plist.in"
-            "tsvitch"
+            "tsvitchpe"
             "${APP_VERSION}")
 elseif (PLATFORM_PSV)
     set(VITA_MKSFOEX_FLAGS "${VITA_MKSFOEX_FLAGS} -d ATTRIBUTE2=12") # max heap size mode
@@ -299,7 +297,7 @@ elseif (PLATFORM_PS4)
     add_pkg(${PROJECT_NAME}
             ${CMAKE_BINARY_DIR}/ps4
             ${PSN_TITLE_ID}
-            "TsVitch"
+            "TsVitchPE"
             ${VITA_VERSION}
             8388608
     )

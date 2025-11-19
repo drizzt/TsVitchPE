@@ -11,7 +11,7 @@ from datetime import datetime
 def get_github_downloads():
     """Ottiene i download totali da GitHub releases"""
     try:
-        response = requests.get("https://api.github.com/repos/giovannimirulla/TsVitch/releases")
+        response = requests.get("https://api.github.com/repos/drizzt/TsVitchPE/releases")
         response.raise_for_status()
         releases = response.json()
         
@@ -34,7 +34,7 @@ def get_homebrew_downloads():
         
         tsvitch_package = None
         for package in data.get('packages', []):
-            if package.get('name') == 'TsVitch':
+            if package.get('name') == 'TsVitchPE':
                 tsvitch_package = package
                 break
         

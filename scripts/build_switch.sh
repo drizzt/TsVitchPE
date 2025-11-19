@@ -34,4 +34,4 @@ cmake -B ${BUILD_DIR} \
   -DBRLS_UNITY_BUILD=ON \
   -DM3U8_URL="${M3U8_URL}" 
 
-make -C ${BUILD_DIR} TsVitch.nro -j$(nproc)
+make -C ${BUILD_DIR} TsVitchPE.nro -j$(nproc)

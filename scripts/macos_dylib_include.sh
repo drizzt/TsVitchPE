@@ -4,7 +4,7 @@ boost_version="1.85.0"
 webp_version="1.4.0"
 mpv_version="0.38.0"
 
-# cd to TsVitch" "
+# cd to TsVitchPE" "
 cd "$(dirname "$0")/.." || exit
 
 rm -rf include

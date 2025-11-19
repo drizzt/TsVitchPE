@@ -256,7 +256,7 @@ void ProgramConfig::saveHomeWindowState() {
 }
 
 void ProgramConfig::load() {
-    const std::string path = this->getConfigDir() + "/tsvitch_config.json";
+    const std::string path = this->getConfigDir() + "/tsvitchpe_config.json";
 
     std::ifstream readFile(path);
     if (readFile) {
@@ -517,7 +517,7 @@ int ProgramConfig::getStringOptionIndex(SettingItem item) {
 }
 
 void ProgramConfig::save() {
-    const std::string path = this->getConfigDir() + "/tsvitch_config.json";
+    const std::string path = this->getConfigDir() + "/tsvitchpe_config.json";
 
 #ifndef IOS
     cpr::fs::create_directories(this->getConfigDir());
@@ -632,11 +632,11 @@ std::string ProgramConfig::getHomePath() {
 
 std::string ProgramConfig::getConfigDir() {
 #ifdef __SWITCH__
-    return "/config/tsvitch";
+    return "/config/tsvitchpe";
 #elif defined(PS4)
-    return "/data/tsvitch";
+    return "/data/tsvitchpe";
 #elif defined(__PSV__)
-    return "ux0:/data/tsvitch";
+    return "ux0:/data/tsvitchpe";
 #elif defined(IOS)
     CFURLRef homeURL = CFCopyHomeDirectoryURL();
     if (homeURL != nullptr) {
@@ -652,27 +652,27 @@ std::string ProgramConfig::getConfigDir() {
     char currentPathBuffer[PATH_MAX];
     std::string currentPath = getcwd(currentPathBuffer, sizeof(currentPathBuffer));
 #ifdef _WIN32
-    return currentPath + "\\config\\tsvitch";
+    return currentPath + "\\config\\tsvitchpe";
 #else
-    return currentPath + "/config/tsvitch";
+    return currentPath + "/config/tsvitchpe";
 #endif
 #else
 #ifdef __APPLE__
-    return std::string(getenv("HOME")) + "/Library/Application Support/tsvitch";
+    return std::string(getenv("HOME")) + "/Library/Application Support/tsvitchpe";
 #endif
 #ifdef __linux__
     std::string config = "";
     char* config_home  = getenv("XDG_CONFIG_HOME");
     if (config_home) config = std::string(config_home);
     if (config.empty()) config = std::string(getenv("HOME")) + "/.config";
-    return config + "/tsvitch";
+    return config + "/tsvitchpe";
 #endif
 #ifdef _WIN32
     WCHAR wpath[MAX_PATH];
     std::vector<char> lpath(MAX_PATH);
     SHGetSpecialFolderPathW(0, wpath, CSIDL_LOCAL_APPDATA, false);
     WideCharToMultiByte(CP_UTF8, 0, wpath, std::wcslen(wpath), lpath.data(), lpath.size(), nullptr, nullptr);
-    return std::string(lpath.data()) + "\\giovannimirulla\\tsvitch";
+    return std::string(lpath.data()) + "\\drizzt\\tsvitchpe";
 #endif
 #endif
 #endif

@@ -7,10 +7,10 @@
 
 - - -
 <div align="center">
-<img src="https://img.shields.io/github/v/release/giovannimirulla/TsVitch"/>
-<img src="https://img.shields.io/endpoint?url=https://giovannimirulla.github.io/TsVitch/downloads.json">
-<img src="https://img.shields.io/github/stars/giovannimirulla/TsVitch?style=flat"/>
-<img src="https://img.shields.io/github/forks/giovannimirulla/TsVitch"/>
+<img src="https://img.shields.io/github/v/release/drizzt/TsVitchPE"/>
+<img src="https://img.shields.io/endpoint?url=https://drizzt.github.io/TsVitchPE/downloads.json">
+<img src="https://img.shields.io/github/stars/drizzt/TsVitchPE?style=flat"/>
+<img src="https://img.shields.io/github/forks/drizzt/TsVitchPE"/>
 </div>
 
 
@@ -19,11 +19,6 @@
 </div>
 <br>
 
-<div align="center">
-<a href="https://discord.gg/etUeUJXkm3">
-    <img src="https://img.shields.io/badge/Join%20on%20Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge" alt="Join on Discord"/>
-</a>
-</div>
 <br>
 <p align="center">
 <img src="docs/images/screenshot-NX.png" alt="screenshot">
@@ -50,22 +45,22 @@ The app comes preloaded with a default playlist sourced from the [Free-TV/IPTV r
 ### Nintendo Switch
 
 
-1. Download TsVitch-NintendoSwitch.zip from: [TsVitch releases](https://github.com/giovannimirulla/TsVitch/releases)
-2. Place TsVitch.nro in the SD card under the switch directory.
-3. On the home screen, hold the R button while opening any game to access hbmenu. From the list, select TsVitch and click to launch.
+1. Download TsVitchPE-NintendoSwitch.zip from: [TsVitchPE releases](https://github.com/drizzt/TsVitchPE/releases)
+2. Place TsVitchPE.nro in the SD card under the switch directory.
+3. On the home screen, hold the R button while opening any game to access hbmenu. From the list, select TsVitchPE and click to launch.
 4. [Optional] Install a desktop shortcut within the app via: Settings/Utilities/User Guide.
 
 # Clone & Build
 
 ```shell
 # Pulling code
-git clone --recursive https://github.com/giovannimirulla/TsVitch.git
-cd TsVitch
+git clone --recursive https://github.com/drizzt/TsVitchPE.git
+cd TsVitchPE
 ```
 
 ### PC
 
-Currently TsVitch is supported on macOS.
+Currently TsVitchPE is supported on macOS.
 
 <details>
 
@@ -82,12 +77,12 @@ cmake -B build -DCPR_USE_SYSTEM_CURL=ON \
   -DBOOST_ROOT=/opt/homebrew/opt/boost \
   -DBoost_NO_SYSTEM_PATHS=ON \
   -DPLATFORM_DESKTOP=ON
-make -C build TsVitch -j$(sysctl -n hw.ncpu)
+make -C build TsVitchPE -j$(sysctl -n hw.ncpu)
 ```
 
 </details>
 
-### Cross-compile the Switch executable (TsVitch.nro)
+### Cross-compile the Switch executable (TsVitchPE.nro)
 
 Recommended to use docker build, local build configuration environment is slightly cumbersome, but can be used to switch the underlying ffmpeg or mpv and other dependent libraries for more flexible debugging.
 
@@ -118,7 +113,7 @@ sudo dkp-pacman -U \
 
 # 4. Build
 cmake -B cmake-build-switch -DPLATFORM_SWITCH=ON
-make -C cmake-build-switch TsVitch.nro -j$(nproc)
+make -C cmake-build-switch TsVitchPE.nro -j$(nproc)
 ```
 
 </details>
@@ -130,7 +125,7 @@ This app does not host or provide any IPTV content. Users are responsible for en
 
 # Acknowledgement
 
-The development of TsVitch cannot do without the support of the following open source projects.
+The development of TsVitchPE cannot do without the support of the following open source projects.
 
 - Toolchain: devkitpro, switchbrew, vitasdk OpenOrbis and PacBrew
     - https://github.com/devkitPro

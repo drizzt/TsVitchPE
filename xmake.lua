@@ -135,7 +135,7 @@ add_requires("qr-code-generator", {configs={cpp=true}})
 add_requires("webp")
 add_requires("zlib")
 
-target("TsVitch")
+target("TsVitchPE")
     add_includedirs("tsvitch/include", "tsvitch/include/api")
     add_files("tsvitch/source/**.cpp")
     add_defines("BRLS_RESOURCES=\"./resources/\"")

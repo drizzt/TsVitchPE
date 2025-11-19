@@ -1,4 +1,4 @@
-name: Build TsVitch
+name: Build TsVitchPE
 
 on:
   workflow_dispatch:
@@ -55,11 +55,11 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: |
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
-          echo "DIST_NRO=TsVitch-NintendoSwitch-${VERSION}" >> $GITHUB_OUTPUT
-          echo "DIST_DMG_PREFIX=TsVitch-macOS" >> $GITHUB_OUTPUT
-          echo "DIST_INTEL_DMG=TsVitch-macOS-IntelChip-${VERSION}" >> $GITHUB_OUTPUT
-          echo "DIST_ARM_DMG=TsVitch-macOS-AppleSilicon-${VERSION}" >> $GITHUB_OUTPUT
-          echo "DIST_UNIVERSAL_DMG=TsVitch-macOS-Universal-${VERSION}" >> $GITHUB_OUTPUT
+          echo "DIST_NRO=TsVitchPE-NintendoSwitch-${VERSION}" >> $GITHUB_OUTPUT
+          echo "DIST_DMG_PREFIX=TsVitchPE-macOS" >> $GITHUB_OUTPUT
+          echo "DIST_INTEL_DMG=TsVitchPE-macOS-IntelChip-${VERSION}" >> $GITHUB_OUTPUT
+          echo "DIST_ARM_DMG=TsVitchPE-macOS-AppleSilicon-${VERSION}" >> $GITHUB_OUTPUT
+          echo "DIST_UNIVERSAL_DMG=TsVitchPE-macOS-Universal-${VERSION}" >> $GITHUB_OUTPUT
           echo $VERSION
           echo "${{  github.event.inputs.version }}"
 
@@ -99,7 +99,7 @@ jobs:
           make_latest: true
           tag_name: v${{ github.event.inputs.version }}
           files: |
-            ${{ needs.version.outputs.DIST_NRO }}/TsVitch.nro
+            ${{ needs.version.outputs.DIST_NRO }}/TsVitchPE.nro
             ${{ needs.version.outputs.DIST_INTEL_DMG }}/${{ needs.version.outputs.DIST_INTEL_DMG }}.dmg
             ${{ needs.version.outputs.DIST_ARM_DMG }}/${{ needs.version.outputs.DIST_ARM_DMG }}.dmg
             ${{ needs.version.outputs.DIST_UNIVERSAL_DMG }}/${{ needs.version.outputs.DIST_UNIVERSAL_DMG }}.dmg
@@ -139,7 +139,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ needs.version.outputs.DIST_NRO }}${{ matrix.shuffix }}
-          path: "cmake-build-switch/TsVitch.nro"
+          path: "cmake-build-switch/TsVitchPE.nro"
 
   build-macos:
     needs: [version]
@@ -185,7 +185,7 @@ jobs:
             -DBRLS_UNITY_BUILD=${{ github.event.inputs.disable_unity_build == 'true' && 'OFF' || 'ON' }} \
             -DCMAKE_UNITY_BUILD_BATCH_SIZE=16 \
             -DM3U8_URL="${M3U8_URL}"
-          make -C build TsVitch.app -j$(sysctl -n hw.ncpu)
+          make -C build TsVitchPE.app -j$(sysctl -n hw.ncpu)
 
       - name: Name
         if: matrix.arch != 'Universal' || ( matrix.arch == 'Universal' && github.event.inputs.universal_macos == 'true')
@@ -198,13 +198,13 @@ jobs:
         id: bundle
         run: |
           mkdir -p dist
-          mv build/TsVitch.app dist/
+          mv build/TsVitchPE.app dist/
           cp ./scripts/mac/readme.txt dist/readme.txt
           create-dmg --window-pos 200 120 --window-size 800 400 \
-            --icon-size 100 --icon "TsVitch.app" 200 190 \
-            --icon "readme.txt" 400 100 --hide-extension "TsVitch.app" \
+            --icon-size 100 --icon "TsVitchPE.app" 200 190 \
+            --icon "readme.txt" 400 100 --hide-extension "TsVitchPE.app" \
             --app-drop-link 600 185  --volicon ./scripts/mac/dmg.icns \
-            --volname "TsVitch (${{ needs.version.outputs.version }})" ${{ steps.name.outputs.DMG }}.dmg "dist/"
+            --volname "TsVitchPE (${{ needs.version.outputs.version }})" ${{ steps.name.outputs.DMG }}.dmg "dist/"
 
       - name: Upload dist
         if: matrix.arch != 'Universal' || ( matrix.arch == 'Universal' && github.event.inputs.universal_macos == 'true')

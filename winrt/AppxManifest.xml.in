@@ -7,8 +7,8 @@
   xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
   <Identity Name="a430d85b-5cf1-4705-9fe1-7da520f91d4b" Publisher="CN=giovannimirulla" Version="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}.${VERSION_BUILD}" ProcessorArchitecture="x64" />
   <Properties>
-    <DisplayName>TsVitch</DisplayName>
-    <PublisherDisplayName>Giovanni Mirulla</PublisherDisplayName>
+    <DisplayName>TsVitchPE</DisplayName>
+    <PublisherDisplayName>Timothy Redaelli</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -20,10 +20,10 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="TsVitch.exe" EntryPoint="TsVitch.App">
-      <uap:VisualElements DisplayName="TsVitch" Square150x150Logo="Assets\Square150x150Logo.png"
+    <Application Id="App" Executable="TsVitchPE.exe" EntryPoint="TsVitchPE.App">
+      <uap:VisualElements DisplayName="TsVitchPE" Square150x150Logo="Assets\Square150x150Logo.png"
       Square44x44Logo="Assets\Square44x44Logo.png"
-      Description="TsVitch is a TV streaming application"
+      Description="TsVitchPE is a TV streaming application"
       BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

@@ -37,12 +37,12 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   of a homebrew executable (.nro). This is intended to be used for sysmodules.
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
-APP_TITLE := TsVitch
-APP_AUTHOR := giovannimirulla
-APP_VERSION := 0.2.1
+APP_TITLE := TsVitchPE
+APP_AUTHOR := drizzt
+APP_VERSION := 0.2.1.1
 APP_TITLEID := 010ff000ffff0021
 
-TARGET		:=	TsVitch
+TARGET		:=	TsVitchPE
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data

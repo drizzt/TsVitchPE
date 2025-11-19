@@ -16,10 +16,10 @@ function main(...)
         option.save("main")
         option.set("verbose", true)
     end
-    -- tsvitch.png: rsvg-convert --width=1024 --height=1024 resources/svg/com.giovannimirulla.tsvitch.svg > tsvitch.png
+    -- tsvitch.png: rsvg-convert --width=1024 --height=1024 resources/svg/it.belloworld.tsvitchpe.svg > tsvitch.png
     local tsvitch_png = path.join("build", "tsvitch.png")
     if not os.exists(tsvitch_png) then
-        os.vexecv("rsvg-convert", {"--width=1024", "--height=1024", "resources/svg/com.giovannimirulla.tsvitch.svg", "-o", tsvitch_png})
+        os.vexecv("rsvg-convert", {"--width=1024", "--height=1024", "resources/svg/it.belloworld.tsvitchpe.svg", "-o", tsvitch_png})
     end
 
     -- Genera icon.jpg 256x256 in resources/icon

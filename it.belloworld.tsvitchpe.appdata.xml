@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-    <id>com.giovannimirulla.tsvitch</id>
+    <id>it.belloworld.tsvitchpe</id>
     <metadata_license>CC0-1.0</metadata_license>
     <project_license>GPL-3.0-only</project_license>
-    <name>TsVitch</name>
-    <developer_name>giovannimirulla</developer_name>
+    <name>TsVitchPE</name>
+    <developer_name>drizzt</developer_name>
     <summary>TV finally on your Switch</summary>
-    <launchable type="desktop-id">com.giovannimirulla.tsvitch.desktop</launchable>
-    <translation type="gettext">TsVitch</translation>
+    <launchable type="desktop-id">it.belloworld.tsvitchpe.desktop</launchable>
+    <translation type="gettext">TsVitchPE</translation>
     <content_rating type="oars-1.1">
         <content_attribute id="social-info">mild</content_attribute>
     </content_rating>
@@ -15,10 +15,10 @@
         <p>TV finally on your Switch</p>
     </description>
     <releases>
-        <release date="2025-05-28" version="0.2.1">
+        <release date="2025-05-28" version="0.2.1.1">
             <description>
                 <p>
-                    Please See Official Changelog at github.com/giovannimirulla/TsVitch/releases
+                    Please See Official Changelog at github.com/drizzt/TsVitchPE/releases
                 </p>
             </description>
         </release>
@@ -33,6 +33,6 @@
             <caption>Dark theme</caption>
         </screenshot>
     </screenshots>
-    <url type="homepage">https://github.com/giovannimirulla/TsVitch</url>
-    <url type="bugtracker">https://github.com/giovannimirulla/TsVitch/issues</url>
+    <url type="homepage">https://github.com/drizzt/TsVitchPE</url>
+    <url type="bugtracker">https://github.com/drizzt/TsVitchPE/issues</url>
 </component>

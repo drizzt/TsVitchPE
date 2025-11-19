@@ -4,17 +4,17 @@ set -e
 
 # Use cmake to build a macOS app
 # cmake -B build -DPLATFORM_DESKTOP=ON -DCMAKE_BUILD_TYPE=Release
-# make -C build TsVitch.app -j$(nproc)
+# make -C build TsVitchPE.app -j$(nproc)
 
 # If you want to package and share it with others,
 # you need to install the dependency: dylibbundler, and then re-execute the make command.
 
 BUILD_DIR=$(pwd)
 
-# cd to TsVitch
+# cd to TsVitchPE
 cd "$(dirname "$0")/.."
 
-APP_PATH="${BUILD_DIR}"/TsVitch.app
+APP_PATH="${BUILD_DIR}"/TsVitchPE.app
 
 rm -rf "${APP_PATH}"
 
@@ -32,7 +32,7 @@ git_tag=$(git rev-parse --short HEAD)
 /usr/bin/sed -i '' '39s/1.0/'"${git_tag}"'/' "${APP_PATH}"/Contents/Info.plist
 
 cp ./scripts/mac/AppIcon.icns "${APP_PATH}"/Contents/Resources/AppIcon.icns
-cp "${BUILD_DIR}"/TsVitch "${APP_PATH}"/Contents/MacOS/TsVitch
+cp "${BUILD_DIR}"/TsVitchPE "${APP_PATH}"/Contents/MacOS/TsVitchPE
 cp -r ./resources "${APP_PATH}"/Contents/Resources/
 
 if ! command -v dylibbundler >/dev/null 2>&1; then
@@ -48,7 +48,7 @@ else
     mkdir -p "${APP_PATH}"/Contents/MacOS/lib
     cp "$2"/*.dylib "${APP_PATH}"/Contents/MacOS/lib
   fi
-  dylibbundler -cd ${bundle_deps} -x "${APP_PATH}"/Contents/MacOS/TsVitch \
+  dylibbundler -cd ${bundle_deps} -x "${APP_PATH}"/Contents/MacOS/TsVitchPE \
     -d "${APP_PATH}"/Contents/MacOS/lib/ -p @executable_path/lib/
   codesign --sign - --force "${APP_PATH}"/Contents/MacOS/lib/*
 fi
